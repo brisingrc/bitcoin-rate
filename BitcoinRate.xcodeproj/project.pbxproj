@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		227E2E8022B50FA100AD56CB /* BitcoinRateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */; };
 		22AFB07822B3BD0A0059A2A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB07722B3BD0A0059A2A8 /* AppDelegate.swift */; };
-		22AFB07A22B3BD0A0059A2A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB07922B3BD0A0059A2A8 /* ViewController.swift */; };
 		22AFB07D22B3BD0A0059A2A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB07B22B3BD0A0059A2A8 /* Main.storyboard */; };
 		22AFB07F22B3BD0C0059A2A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB07E22B3BD0C0059A2A8 /* Assets.xcassets */; };
 		22AFB08222B3BD0C0059A2A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB08022B3BD0C0059A2A8 /* LaunchScreen.storyboard */; };
+		22AFB08B22B3C10C0059A2A8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08A22B3C10C0059A2A8 /* Currency.swift */; };
+		22AFB09022B3C2F00059A2A8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08F22B3C2F00059A2A8 /* NetworkService.swift */; };
+		22AFB09222B3C3530059A2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB09122B3C3530059A2A8 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRateVC.swift; sourceTree = "<group>"; };
 		22AFB07422B3BD0A0059A2A8 /* BitcoinRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AFB07722B3BD0A0059A2A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22AFB07922B3BD0A0059A2A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22AFB07C22B3BD0A0059A2A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22AFB07E22B3BD0C0059A2A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22AFB08122B3BD0C0059A2A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AFB08322B3BD0C0059A2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22AFB08A22B3C10C0059A2A8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		22AFB08F22B3C2F00059A2A8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		22AFB09122B3C3530059A2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		22AFB07622B3BD0A0059A2A8 /* BitcoinRate */ = {
 			isa = PBXGroup;
 			children = (
+				22AFB08E22B3C2040059A2A8 /* Service */,
+				22AFB08D22B3C1FE0059A2A8 /* Controller */,
+				22AFB08C22B3C1F20059A2A8 /* View */,
+				22AFB08922B3C0F70059A2A8 /* Model */,
 				22AFB07722B3BD0A0059A2A8 /* AppDelegate.swift */,
-				22AFB07922B3BD0A0059A2A8 /* ViewController.swift */,
 				22AFB07B22B3BD0A0059A2A8 /* Main.storyboard */,
 				22AFB07E22B3BD0C0059A2A8 /* Assets.xcassets */,
 				22AFB08022B3BD0C0059A2A8 /* LaunchScreen.storyboard */,
 				22AFB08322B3BD0C0059A2A8 /* Info.plist */,
 			);
 			path = BitcoinRate;
+			sourceTree = "<group>";
+		};
+		22AFB08922B3C0F70059A2A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22AFB08A22B3C10C0059A2A8 /* Currency.swift */,
+				22AFB09122B3C3530059A2A8 /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22AFB08C22B3C1F20059A2A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22AFB08D22B3C1FE0059A2A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		22AFB08E22B3C2040059A2A8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				22AFB08F22B3C2F00059A2A8 /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22AFB07A22B3BD0A0059A2A8 /* ViewController.swift in Sources */,
+				22AFB08B22B3C10C0059A2A8 /* Currency.swift in Sources */,
+				22AFB09022B3C2F00059A2A8 /* NetworkService.swift in Sources */,
 				22AFB07822B3BD0A0059A2A8 /* AppDelegate.swift in Sources */,
+				227E2E8022B50FA100AD56CB /* BitcoinRateVC.swift in Sources */,
+				22AFB09222B3C3530059A2A8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
