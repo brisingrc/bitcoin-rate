@@ -14,15 +14,15 @@ struct Currency {
     let description: String
     let rate_float: Double
     
-    init?(_ dic: [String:Any]) {
-        guard let code = dic["code"] as? String,
-            let rate = dic["rate"] as? String,
-            let description = dic["description"] as? String,
-            let rate_float = dic["rate_float"] as? Double else {return nil}
-        self.code = code
-        self.rate = rate
-        self.description = description
-        self.rate_float = rate_float
+    init(_ dic: [String:Any]) {
+//        guard let code = dic["code"] as? String,
+//            let rate = dic["rate"] as? String,
+//            let description = dic["description"] as? String,
+//            let rate_float = dic["rate_float"] as? Double else {return nil}
+        self.code = dic["code"] as? String ?? ""
+        self.rate = dic["rate"] as? String ?? ""
+        self.description = dic["description"] as? String ?? ""
+        self.rate_float = dic["rate_float"] as? Double ?? 0
     }
     
     init() {

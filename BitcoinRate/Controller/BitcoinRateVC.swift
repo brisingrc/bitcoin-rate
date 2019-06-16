@@ -7,20 +7,45 @@
 //
 
 import UIKit
+import Charts
 
 class BitcoinRateVC: UIViewController {
     
     @IBOutlet weak var pickCurrency: UITextField!
     @IBOutlet weak var rateNumberLabel: UILabel!
-    @IBOutlet weak var rateCurrencyCode: UILabel!
+    @IBOutlet weak var rateCurrencyCodeLabel: UILabel!
+    @IBOutlet weak var rateDescriptionLabel: UILabel!
+    @IBOutlet weak var currencyChart: LineChartView!
+    @IBOutlet weak var changeGraphPeriod: UISegmentedControl!
     
     let currencyCodes = ["USD", "EUR", "KZT"]
+    var currentCode = "USD"
 //    var currentCurrency = ""
     let picker = UIPickerView()
-    var currencies = [Currency]()
+//    var currencies = [[String:Currency]]()
+    var currentCurrency = Currency()
+    
+    @objc func changeGraphSource(_ sender: UISegmentedControl) {
+        let numbers:[Double] = [12,253,15,62,15,81,15]
+        var lineChartEntry = [ChartDataEntry]()
+        
+        for i in 0...numbers.count - 1 {
+            let value = ChartDataEntry(x: Double(i), y: numbers[i])
+            lineChartEntry.append(value)
+        }
+        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Number")
+        line1.colors = [UIColor.blue]
+        let data = LineChartData()
+        data.addDataSet(line1)
+        currencyChart.data = data
+        currencyChart.chartDescription?.text = "My awesome chart"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeGraphPeriod.addTarget(self, action: #selector(changeGraphSource(_:)), for: .allEvents)
+        updateUI()
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         picker.delegate = self
         picker.dataSource = self
         pickCurrency.inputView = picker
@@ -30,7 +55,7 @@ class BitcoinRateVC: UIViewController {
         toolBar.tintColor = UIColor(red:0.11, green:0.60, blue:0.87, alpha:1.0)
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Готово", style: .plain, target: self, action: #selector(closePickerView))
+        let doneButton = UIBarButtonItem(title: "Готово", style: .plain, target: self, action: #selector(updateUI))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(closePickerView))
         toolBar.setItems([cancelButton,spaceButton, doneButton], animated: false)
@@ -59,26 +84,29 @@ extension BitcoinRateVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("pickerView delegate method was  called")
-       updateUI(currencyCode: currencyCodes[row])
+       currentCode = currencyCodes[row]
     }
     
 
     @objc func closePickerView() {
-        self.view.endEditing(true)
+        self.pickCurrency.resignFirstResponder()
     }
     
-    func updateUI(currencyCode: String) {
-        guard let url = URL(string: "\(Constants.baseUrl)/currentprice/\(currencyCode).json") else {return}
+    //update UI elements depending of current currency code
+    @objc func updateUI() {
+        rateDescriptionLabel.text = "Bitcoin to \(currentCode)"
+        guard let url = URL(string: "\(Constants.baseUrl)/currentprice/\(currentCode).json") else {return}
         NetworkService.shared.getData(url: url) { (response) in
             guard let currencyList = response["bpi"] as? [String:Any] else {return}
-                print(currencyList.keys)
-//            guard let usd = currencyList["USD"] as? [String:Any],
-//                let secondCurrency = currencyList["\(currencyCode)"] as? [String:Any] else {return}
-//            self.currencies.append(Currency(usd)!)
-//            self.currencies.append(Currency(secondCurrency)!)
+            self.currentCurrency = ParseJson.findCurrencyByCode(currencyCode: self.currentCode, currencyList: currencyList)
             
+            DispatchQueue.main.async {
+                self.rateNumberLabel.text = self.currentCurrency.rate
+                self.rateCurrencyCodeLabel.text = self.currentCurrency.code
+                self.pickCurrency.resignFirstResponder()
+            }
             
-            print(self.currencies)
+            print(self.currentCurrency)
         }
     }
 }
