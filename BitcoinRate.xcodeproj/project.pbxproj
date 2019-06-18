@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,9 @@
 		22AFB07F22B3BD0C0059A2A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB07E22B3BD0C0059A2A8 /* Assets.xcassets */; };
 		22AFB08222B3BD0C0059A2A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB08022B3BD0C0059A2A8 /* LaunchScreen.storyboard */; };
 		22AFB08B22B3C10C0059A2A8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08A22B3C10C0059A2A8 /* Currency.swift */; };
-		22AFB09022B3C2F00059A2A8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08F22B3C2F00059A2A8 /* NetworkService.swift */; };
+		22AFB09022B3C2F00059A2A8 /* BpiDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08F22B3C2F00059A2A8 /* BpiDataService.swift */; };
 		22AFB09222B3C3530059A2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB09122B3C3530059A2A8 /* Constants.swift */; };
+		22C162E722B7FB640054393F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C162E622B7FB640054393F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +31,9 @@
 		22AFB08122B3BD0C0059A2A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AFB08322B3BD0C0059A2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AFB08A22B3C10C0059A2A8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		22AFB08F22B3C2F00059A2A8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		22AFB08F22B3C2F00059A2A8 /* BpiDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpiDataService.swift; sourceTree = "<group>"; };
 		22AFB09122B3C3530059A2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		22C162E622B7FB640054393F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = BitcoinRate/Service/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		A93434B4A5A48F9D58E611CA /* Pods_BitcoinRate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitcoinRate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FF4F28085853889E2C2841 /* Pods-BitcoinRate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinRate.release.xcconfig"; path = "Target Support Files/Pods-BitcoinRate/Pods-BitcoinRate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 		22AFB08C22B3C1F20059A2A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22C162E622B7FB640054393F /* Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,7 +120,7 @@
 		22AFB08E22B3C2040059A2A8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				22AFB08F22B3C2F00059A2A8 /* NetworkService.swift */,
+				22AFB08F22B3C2F00059A2A8 /* BpiDataService.swift */,
 				2244DED022B68FDE00185B02 /* ParseJson.swift */,
 			);
 			path = Service;
@@ -129,7 +132,6 @@
 				1D1DF8E7E5E0E0CA5521D857 /* Pods-BitcoinRate.debug.xcconfig */,
 				C1FF4F28085853889E2C2841 /* Pods-BitcoinRate.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,11 +251,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AFB08B22B3C10C0059A2A8 /* Currency.swift in Sources */,
-				22AFB09022B3C2F00059A2A8 /* NetworkService.swift in Sources */,
+				22AFB09022B3C2F00059A2A8 /* BpiDataService.swift in Sources */,
 				22AFB07822B3BD0A0059A2A8 /* AppDelegate.swift in Sources */,
 				227E2E8022B50FA100AD56CB /* BitcoinRateVC.swift in Sources */,
 				22AFB09222B3C3530059A2A8 /* Constants.swift in Sources */,
 				2244DED122B68FDE00185B02 /* ParseJson.swift in Sources */,
+				22C162E722B7FB640054393F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

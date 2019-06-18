@@ -46,15 +46,18 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekm-1u-ihb">
                                 <rect key="frame" x="244" y="144" width="28" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="W8z-Hx-7ef"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dx-EV-HKw">
-                                <rect key="frame" x="84" y="84" width="156" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dx-EV-HKw">
+                                <rect key="frame" x="84" y="84" width="114" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="156" id="Ahe-xQ-kgG"/>
                                     <constraint firstAttribute="height" constant="27" id="a1g-yD-7K5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="j7F-jD-ebf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -80,12 +83,22 @@
                                     <constraint firstAttribute="height" constant="287" id="Eu1-N4-yPi"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="USD" borderStyle="roundedRect" placeholder="Choose currency" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGV-wT-1xC">
+                                <rect key="frame" x="198" y="81" width="51" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="CBI-tK-w9t"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="esK-Cz-jni"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1o0-6b-a8T" firstAttribute="top" secondItem="pGX-Rp-CQr" secondAttribute="top" constant="70" id="36h-Kf-iK8"/>
                             <constraint firstItem="9dx-EV-HKw" firstAttribute="top" secondItem="pGX-Rp-CQr" secondAttribute="top" constant="20" id="7DT-hW-luJ"/>
-                            <constraint firstItem="pGX-Rp-CQr" firstAttribute="trailing" secondItem="ekm-1u-ihb" secondAttribute="trailing" constant="48" id="9Vk-RG-0H1"/>
+                            <constraint firstItem="pGX-Rp-CQr" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ekm-1u-ihb" secondAttribute="trailing" constant="48" id="9Vk-RG-0H1"/>
                             <constraint firstItem="9dx-EV-HKw" firstAttribute="leading" secondItem="pGX-Rp-CQr" secondAttribute="leading" constant="84" id="CKX-Ia-0c1"/>
                             <constraint firstItem="pGX-Rp-CQr" firstAttribute="trailing" secondItem="1o0-6b-a8T" secondAttribute="trailing" constant="142" id="CgG-WT-2UU"/>
                             <constraint firstItem="pGX-Rp-CQr" firstAttribute="trailing" secondItem="03e-l3-97G" secondAttribute="trailing" constant="40" id="FEE-4Y-M48"/>
@@ -94,21 +107,16 @@
                             <constraint firstItem="1o0-6b-a8T" firstAttribute="leading" secondItem="pGX-Rp-CQr" secondAttribute="leading" constant="16" id="GPn-7M-wrv"/>
                             <constraint firstItem="03e-l3-97G" firstAttribute="top" secondItem="1o0-6b-a8T" secondAttribute="bottom" constant="21" id="S7s-0j-AAX"/>
                             <constraint firstItem="pA6-R0-gB9" firstAttribute="top" secondItem="03e-l3-97G" secondAttribute="bottom" constant="8" id="SDS-IW-248"/>
-                            <constraint firstItem="pGX-Rp-CQr" firstAttribute="trailing" secondItem="9dx-EV-HKw" secondAttribute="trailing" constant="80" id="aOx-d7-vL6"/>
+                            <constraint firstItem="pGX-Rp-CQr" firstAttribute="trailing" secondItem="zGV-wT-1xC" secondAttribute="trailing" constant="70" id="URM-Lz-39X"/>
+                            <constraint firstItem="zGV-wT-1xC" firstAttribute="leading" secondItem="9dx-EV-HKw" secondAttribute="trailing" id="UzG-k6-dre"/>
                             <constraint firstItem="ekm-1u-ihb" firstAttribute="leading" secondItem="1o0-6b-a8T" secondAttribute="trailing" constant="66" id="dDy-8a-sD5"/>
+                            <constraint firstItem="zGV-wT-1xC" firstAttribute="top" secondItem="pGX-Rp-CQr" secondAttribute="top" constant="20" id="hZg-pr-u8B"/>
                             <constraint firstItem="03e-l3-97G" firstAttribute="leading" secondItem="pGX-Rp-CQr" secondAttribute="leading" constant="46" id="qjT-1r-aJ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pGX-Rp-CQr"/>
                     </view>
                     <navigationItem key="navigationItem" id="2ZQ-QJ-klK">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose currency" textAlignment="natural" minimumFontSize="17" id="zGV-wT-1xC">
-                            <rect key="frame" x="94.5" y="7" width="131.5" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                     </navigationItem>
                     <connections>
                         <outlet property="changeGraphPeriod" destination="03e-l3-97G" id="nhh-ZG-Nip"/>
