@@ -21,18 +21,10 @@ class BitcoinRateVC: UIViewController {
     let currencyCodes = ["USD", "EUR", "KZT"]
     var currentCode = "USD"
     let picker = UIPickerView()
-
-
-    
-    
+    var rates = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        BpiDataService.shared.getHistorical(start: Calendar.current.date(byAdding: .weekOfMonth, value: -1, to: Date()), end: Date(), currency: currentCode) { response in
-            print(response)
-        }
-        
         changeGraphPeriod.addTarget(self, action: #selector(changeGraphSource(_:)), for: .allEvents)
         updateUI()
         self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
@@ -53,6 +45,7 @@ class BitcoinRateVC: UIViewController {
         pickCurrency.inputAccessoryView = toolBar
         
         
+        changeGraphPeriod.selectedSegmentIndex = 1
     }
     
 }
@@ -86,7 +79,7 @@ extension BitcoinRateVC: UIPickerViewDelegate, UIPickerViewDataSource {
     @objc func updateUI() {
         rateDescriptionLabel.text = "Bitcoin to"
         pickCurrency.text = currentCode
-        BpiDataService.shared.getCurrentRate(currentCode: currentCode, completionHandler: { response in
+        BpiDataService.getCurrentRate(currentCode: currentCode, completionHandler: { response in
             DispatchQueue.main.async {
                 self.rateNumberLabel.text = response.rate
                 self.rateCurrencyCodeLabel.text = response.code
@@ -98,18 +91,48 @@ extension BitcoinRateVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     //
     @objc func changeGraphSource(_ sender: UISegmentedControl) {
-        let numbers:[Double] = [12,253,15,62,15,81,15]
-        var lineChartEntry = [ChartDataEntry]()
+        switch sender.selectedSegmentIndex {
+        case 0:
+            BpiDataService.getHistorical(start: Calendar.current.date(byAdding: .day, value: -7, to: Date()), end: Date(), currency: currentCode) { response in
+                guard let response = response as? [String:Any] else {return}
+                self.rates.removeAll()
+                for (key, value) in (response["bpi"] as? [String:Any])! {
+                    self.rates.append(value as? Double ?? 0)
+                }
+                DispatchQueue.main.async {
+                   
+                }
+                                print(response)
+            }
+        case 1:
+            BpiDataService.getHistorical(start: Calendar.current.date(byAdding: .month, value: -1, to: Date()), end: Date(), currency: currentCode) { response in
+                guard let response = response as? [String:Any] else {return}
+                self.rates.removeAll()
+                
+                print(response)
+            }
+        case 2:
+            BpiDataService.getHistorical(start: Calendar.current.date(byAdding: .year, value: -1, to: Date()), end: Date(), currency: currentCode) { response in
+                print(response)
+            }
+        default:
+            break
+        }
         
-        for i in 0...numbers.count - 1 {
-            let value = ChartDataEntry(x: Double(i), y: numbers[i])
+       
+        
+    }
+    private func drawGraph() {
+        var lineChartEntry = [ChartDataEntry]()
+        for i in 0...self.rates.count - 1 {
+            let value = ChartDataEntry(x: Double(i), y: self.rates[i])
             lineChartEntry.append(value)
         }
-        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Number")
+        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Bitcoin Rate")
         line1.colors = [UIColor.blue]
         let data = LineChartData()
         data.addDataSet(line1)
-        currencyChart.data = data
-        currencyChart.chartDescription?.text = "My awesome chart"
+        self.currencyChart.data = data
+        self.currencyChart.chartDescription?.text = "My awesome chart"
     }
 }

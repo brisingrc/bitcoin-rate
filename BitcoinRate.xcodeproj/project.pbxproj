@@ -9,21 +9,32 @@
 /* Begin PBXBuildFile section */
 		1C0E3E7F3160070234982755 /* Pods_BitcoinRate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93434B4A5A48F9D58E611CA /* Pods_BitcoinRate.framework */; };
 		2244DED122B68FDE00185B02 /* ParseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244DED022B68FDE00185B02 /* ParseJson.swift */; };
+		227AB50622BAA84E005441F1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AB50522BAA84E005441F1 /* Transaction.swift */; };
+		227AB50822BAAC69005441F1 /* TransactionDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AB50722BAAC69005441F1 /* TransactionDataService.swift */; };
+		227AB50A22BAAC97005441F1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AB50922BAAC97005441F1 /* NetworkService.swift */; };
+		227AB50C22BAAF36005441F1 /*  ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AB50B22BAAF36005441F1 /*  ParseError.swift */; };
 		227E2E8022B50FA100AD56CB /* BitcoinRateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */; };
+		2298FB9E22BAB306004A8207 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298FB9D22BAB306004A8207 /* TransactionsTableViewController.swift */; };
+		2298FBA022BAB48A004A8207 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298FB9F22BAB48A004A8207 /* TransactionTableViewCell.swift */; };
 		22AFB07822B3BD0A0059A2A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB07722B3BD0A0059A2A8 /* AppDelegate.swift */; };
 		22AFB07D22B3BD0A0059A2A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB07B22B3BD0A0059A2A8 /* Main.storyboard */; };
 		22AFB07F22B3BD0C0059A2A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB07E22B3BD0C0059A2A8 /* Assets.xcassets */; };
 		22AFB08222B3BD0C0059A2A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AFB08022B3BD0C0059A2A8 /* LaunchScreen.storyboard */; };
 		22AFB08B22B3C10C0059A2A8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08A22B3C10C0059A2A8 /* Currency.swift */; };
 		22AFB09022B3C2F00059A2A8 /* BpiDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB08F22B3C2F00059A2A8 /* BpiDataService.swift */; };
-		22AFB09222B3C3530059A2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB09122B3C3530059A2A8 /* Constants.swift */; };
 		22C162E722B7FB640054393F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C162E622B7FB640054393F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D1DF8E7E5E0E0CA5521D857 /* Pods-BitcoinRate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinRate.debug.xcconfig"; path = "Target Support Files/Pods-BitcoinRate/Pods-BitcoinRate.debug.xcconfig"; sourceTree = "<group>"; };
 		2244DED022B68FDE00185B02 /* ParseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJson.swift; sourceTree = "<group>"; };
+		227AB50522BAA84E005441F1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		227AB50722BAAC69005441F1 /* TransactionDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataService.swift; sourceTree = "<group>"; };
+		227AB50922BAAC97005441F1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		227AB50B22BAAF36005441F1 /*  ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ParseError.swift"; sourceTree = "<group>"; };
 		227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinRateVC.swift; sourceTree = "<group>"; };
+		2298FB9D22BAB306004A8207 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
+		2298FB9F22BAB48A004A8207 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionTableViewCell.swift; path = BitcoinRate/Controller/TransactionTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		22AFB07422B3BD0A0059A2A8 /* BitcoinRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AFB07722B3BD0A0059A2A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22AFB07C22B3BD0A0059A2A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,7 +43,6 @@
 		22AFB08322B3BD0C0059A2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AFB08A22B3C10C0059A2A8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		22AFB08F22B3C2F00059A2A8 /* BpiDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpiDataService.swift; sourceTree = "<group>"; };
-		22AFB09122B3C3530059A2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22C162E622B7FB640054393F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = BitcoinRate/Service/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		A93434B4A5A48F9D58E611CA /* Pods_BitcoinRate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitcoinRate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FF4F28085853889E2C2841 /* Pods-BitcoinRate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinRate.release.xcconfig"; path = "Target Support Files/Pods-BitcoinRate/Pods-BitcoinRate.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				22AFB08A22B3C10C0059A2A8 /* Currency.swift */,
-				22AFB09122B3C3530059A2A8 /* Constants.swift */,
+				227AB50522BAA84E005441F1 /* Transaction.swift */,
+				227AB50B22BAAF36005441F1 /*  ParseError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				22C162E622B7FB640054393F /* Extensions.swift */,
+				2298FB9F22BAB48A004A8207 /* TransactionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */,
+				2298FB9D22BAB306004A8207 /* TransactionsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,6 +135,8 @@
 			children = (
 				22AFB08F22B3C2F00059A2A8 /* BpiDataService.swift */,
 				2244DED022B68FDE00185B02 /* ParseJson.swift */,
+				227AB50722BAAC69005441F1 /* TransactionDataService.swift */,
+				227AB50922BAAC97005441F1 /* NetworkService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -250,12 +265,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227AB50A22BAAC97005441F1 /* NetworkService.swift in Sources */,
 				22AFB08B22B3C10C0059A2A8 /* Currency.swift in Sources */,
 				22AFB09022B3C2F00059A2A8 /* BpiDataService.swift in Sources */,
+				227AB50822BAAC69005441F1 /* TransactionDataService.swift in Sources */,
+				227AB50622BAA84E005441F1 /* Transaction.swift in Sources */,
 				22AFB07822B3BD0A0059A2A8 /* AppDelegate.swift in Sources */,
+				2298FB9E22BAB306004A8207 /* TransactionsTableViewController.swift in Sources */,
 				227E2E8022B50FA100AD56CB /* BitcoinRateVC.swift in Sources */,
-				22AFB09222B3C3530059A2A8 /* Constants.swift in Sources */,
 				2244DED122B68FDE00185B02 /* ParseJson.swift in Sources */,
+				227AB50C22BAAF36005441F1 /*  ParseError.swift in Sources */,
+				2298FBA022BAB48A004A8207 /* TransactionTableViewCell.swift in Sources */,
 				22C162E722B7FB640054393F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +360,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -394,6 +415,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -403,16 +425,18 @@
 			baseConfigurationReference = 1D1DF8E7E5E0E0CA5521D857 /* Pods-BitcoinRate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ654J93NT;
+				DEVELOPMENT_TEAM = BK8ULRB748;
 				INFOPLIST_FILE = BitcoinRate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sp.local.BitcoinRate;
+				PRODUCT_BUNDLE_IDENTIFIER = choco.local.BitcoinRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -422,16 +446,18 @@
 			baseConfigurationReference = C1FF4F28085853889E2C2841 /* Pods-BitcoinRate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ654J93NT;
+				DEVELOPMENT_TEAM = BK8ULRB748;
 				INFOPLIST_FILE = BitcoinRate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sp.local.BitcoinRate;
+				PRODUCT_BUNDLE_IDENTIFIER = choco.local.BitcoinRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
