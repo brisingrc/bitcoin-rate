@@ -9,20 +9,28 @@
 import Foundation
 
 extension Date {
-    var day: Int {
-        return Calendar.current.component(.day, from: self)
-    }
-    func adding(days: Int) -> Date {
-        return Calendar.current.date(byAdding: .day, value: days, to: self)!
-    }
-    var last7days: [Int] {
-        return (1...7).map {
-            adding(days: -$0).day
+    
+    func isSameMonth(_ dic: [String:Double]) {
+        var newDic: [Date:Double] = [:]
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        for (key, value) in dic {
+            guard let date = formatter.date(from: key) else {return}
+                newDic.updateValue(value, forKey: date)
         }
     }
-    func near(days: Int) -> [Int] {
-        return days == 0 ? [day] : (1...abs(days)).map {
-            adding(days: $0 * (days < 0 ? -1 : 1) ).day
+    
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
         }
     }
+    
+//    findByMonth() {
+//    
+//    }
 }

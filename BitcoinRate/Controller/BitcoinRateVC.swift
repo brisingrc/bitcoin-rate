@@ -21,11 +21,11 @@ class BitcoinRateVC: UIViewController {
     let currencyCodes = ["USD", "EUR", "KZT"]
     var currentCode = "USD"
     let picker = UIPickerView()
-    var rates = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         changeGraphPeriod.addTarget(self, action: #selector(changeGraphSource(_:)), for: .allEvents)
+        drawGraph(<#T##values: [Double]##[Double]#>, "Average value by week")
         updateUI()
         self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         picker.delegate = self
@@ -43,8 +43,6 @@ class BitcoinRateVC: UIViewController {
         toolBar.setItems([cancelButton,spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         pickCurrency.inputAccessoryView = toolBar
-        
-        
         changeGraphPeriod.selectedSegmentIndex = 1
     }
     
@@ -94,26 +92,21 @@ extension BitcoinRateVC: UIPickerViewDelegate, UIPickerViewDataSource {
         switch sender.selectedSegmentIndex {
         case 0:
             BpiDataService.getHistorical(start: Calendar.current.date(byAdding: .day, value: -7, to: Date()), end: Date(), currency: currentCode) { response in
-                guard let response = response as? [String:Any] else {return}
-                self.rates.removeAll()
-                for (key, value) in (response["bpi"] as? [String:Any])! {
-                    self.rates.append(value as? Double ?? 0)
-                }
                 DispatchQueue.main.async {
-                   
+                   self.drawGraph(response, "Average value by day")
                 }
-                                print(response)
             }
         case 1:
             BpiDataService.getHistorical(start: Calendar.current.date(byAdding: .month, value: -1, to: Date()), end: Date(), currency: currentCode) { response in
-                guard let response = response as? [String:Any] else {return}
-                self.rates.removeAll()
-                
-                print(response)
+                DispatchQueue.main.async {
+                    self.drawGraph(response, "Average value by week")
+                }
             }
         case 2:
             BpiDataService.getHistorical(start: Calendar.current.date(byAdding: .year, value: -1, to: Date()), end: Date(), currency: currentCode) { response in
-                print(response)
+                DispatchQueue.main.async {
+                    self.drawGraph(response, "Average value by month")
+                }
             }
         default:
             break
@@ -122,13 +115,13 @@ extension BitcoinRateVC: UIPickerViewDelegate, UIPickerViewDataSource {
        
         
     }
-    private func drawGraph() {
+    private func drawGraph(_ values: [Double], _ title: String) {
         var lineChartEntry = [ChartDataEntry]()
-        for i in 0...self.rates.count - 1 {
-            let value = ChartDataEntry(x: Double(i), y: self.rates[i])
+        for i in 0...values.count - 1 {
+            let value = ChartDataEntry(x: Double(i), y:values[i])
             lineChartEntry.append(value)
         }
-        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Bitcoin Rate")
+        let line1 = LineChartDataSet(entries: lineChartEntry, label: title)
         line1.colors = [UIColor.blue]
         let data = LineChartData()
         data.addDataSet(line1)

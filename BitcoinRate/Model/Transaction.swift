@@ -22,9 +22,11 @@ struct Transaction {
         self.tid = dic["tid"] as? Int ?? 0
         self.transactionType = dic["type"] as? Int ?? 0
         self.price = dic["price"] as? String ?? "Not defined"
-        self.date = formatter.string(from: Date(timeIntervalSince1970: Double(dic["date"] as? String ?? "0") as! TimeInterval))
+        self.date = formatter.string(from: Date(timeIntervalSince1970: Double(dic["date"] as? String ?? "0")!))
         self.amount = dic["amount"] as? String ?? "Not defined"
     }
+    
+
 }
 
 

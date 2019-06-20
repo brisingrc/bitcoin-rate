@@ -12,9 +12,13 @@ class TransactionsTableViewController: UITableViewController {
     
     
     var transactions = [Transaction]()
+    let control = UIRefreshControl()
+    var transaction: Transaction!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.refreshControl = control
+        control.addTarget(self, action: #selector(getAllTransactions), for: .valueChanged)
         self.title = "Transactions list"
         showSpinner(onView: tableView)
         TransactionDataService.getAllTransactions { transactions in
@@ -24,8 +28,19 @@ class TransactionsTableViewController: UITableViewController {
                 self.removeSpinner()
             }
         }
+        
     }
-
+    
+    @objc func getAllTransactions() {
+        TransactionDataService.getAllTransactions { transactions in
+            self.transactions = transactions
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.removeSpinner()
+                self.control.endRefreshing()
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,7 +62,13 @@ class TransactionsTableViewController: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        transaction = transactions[indexPath.section]
+        performSegue(withIdentifier: "toTransationDetailVC", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! TransactionDetailViewController
+        vc.transaction = transaction
     }
 }
 
@@ -57,7 +78,7 @@ extension UITableViewController {
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
         ai.startAnimating()
         ai.center = spinnerView.center
         

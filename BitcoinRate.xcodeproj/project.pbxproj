@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C0E3E7F3160070234982755 /* Pods_BitcoinRate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93434B4A5A48F9D58E611CA /* Pods_BitcoinRate.framework */; };
+		2202616F22BB76DC00C5552F /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202616E22BB76DC00C5552F /* TransactionDetailViewController.swift */; };
+		2202617122BB7DB600C5552F /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202617022BB7DB600C5552F /* ConverterViewController.swift */; };
 		2244DED122B68FDE00185B02 /* ParseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244DED022B68FDE00185B02 /* ParseJson.swift */; };
 		227AB50622BAA84E005441F1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AB50522BAA84E005441F1 /* Transaction.swift */; };
 		227AB50822BAAC69005441F1 /* TransactionDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227AB50722BAAC69005441F1 /* TransactionDataService.swift */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		1D1DF8E7E5E0E0CA5521D857 /* Pods-BitcoinRate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinRate.debug.xcconfig"; path = "Target Support Files/Pods-BitcoinRate/Pods-BitcoinRate.debug.xcconfig"; sourceTree = "<group>"; };
+		2202616E22BB76DC00C5552F /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		2202617022BB7DB600C5552F /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		2244DED022B68FDE00185B02 /* ParseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJson.swift; sourceTree = "<group>"; };
 		227AB50522BAA84E005441F1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		227AB50722BAAC69005441F1 /* TransactionDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataService.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 			children = (
 				227E2E7F22B50FA100AD56CB /* BitcoinRateVC.swift */,
 				2298FB9D22BAB306004A8207 /* TransactionsTableViewController.swift */,
+				2202616E22BB76DC00C5552F /* TransactionDetailViewController.swift */,
+				2202617022BB7DB600C5552F /* ConverterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,10 +276,12 @@
 				22AFB09022B3C2F00059A2A8 /* BpiDataService.swift in Sources */,
 				227AB50822BAAC69005441F1 /* TransactionDataService.swift in Sources */,
 				227AB50622BAA84E005441F1 /* Transaction.swift in Sources */,
+				2202617122BB7DB600C5552F /* ConverterViewController.swift in Sources */,
 				22AFB07822B3BD0A0059A2A8 /* AppDelegate.swift in Sources */,
 				2298FB9E22BAB306004A8207 /* TransactionsTableViewController.swift in Sources */,
 				227E2E8022B50FA100AD56CB /* BitcoinRateVC.swift in Sources */,
 				2244DED122B68FDE00185B02 /* ParseJson.swift in Sources */,
+				2202616F22BB76DC00C5552F /* TransactionDetailViewController.swift in Sources */,
 				227AB50C22BAAF36005441F1 /*  ParseError.swift in Sources */,
 				2298FBA022BAB48A004A8207 /* TransactionTableViewCell.swift in Sources */,
 				22C162E722B7FB640054393F /* Extensions.swift in Sources */,
@@ -360,7 +368,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -415,7 +423,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -436,7 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = choco.local.BitcoinRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -457,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = choco.local.BitcoinRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -11,8 +11,7 @@ import Foundation
 typealias JSON = [String:Any]
 
 class BpiDataService {
-   
-   static func getHistorical(start: Date?, end : Date?, currency: String, completionHandler: @escaping (Any) ->()) {
+    static func getHistorical(start: Date?, end : Date?, currency: String, completionHandler: @escaping ([Double]) ->()) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "YYYY-MM-dd"
         
@@ -24,7 +23,11 @@ class BpiDataService {
         
         guard let url = URL(string: "https://api.coindesk.com/v1/bpi/historical/close.json") else {return}
         NetworkService.shared.makeRequest(url: url, params: params) { (response) in
-            completionHandler(response)
+            guard let data = response as? JSON else {return}
+            guard let bpi = data["bpi"] as? JSON else {return}
+            print("bpi's count is \(bpi.count)")
+            print(self.sort(bpi))
+            completionHandler(self.sort(bpi))
         }
         
     }
@@ -42,5 +45,31 @@ class BpiDataService {
     
     func makeArrayForGraph(from: [Double]) {
         
+    }
+    
+    private static func sort(_ dic:JSON) -> [Double] {
+        var rates: [Double] = []
+        var tempItem: Double = 0
+        if dic.count <= 7 {
+            for value in dic.values {
+                guard let value = value as? Double else {return rates}
+                rates.append(value)
+            }
+        }
+        else if dic.count > 7 && dic.count <= 31 {
+            var tempArr = [Double]()
+            for value in dic.values {
+                guard let value = value as? Double else {return rates}
+                tempArr.append(value)
+            }
+            let splitedTempArr = tempArr.chunked(into: 7)
+            for array in splitedTempArr {
+                rates.append(array.reduce(0, +))
+            }
+        }
+        else {
+            return rates
+        }
+        return rates
     }
 }
