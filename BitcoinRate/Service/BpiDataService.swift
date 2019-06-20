@@ -25,8 +25,6 @@ class BpiDataService {
         NetworkService.shared.makeRequest(url: url, params: params) { (response) in
             guard let data = response as? JSON else {return}
             guard let bpi = data["bpi"] as? JSON else {return}
-            print("bpi's count is \(bpi.count)")
-            print(self.sort(bpi))
             completionHandler(self.sort(bpi))
         }
         
@@ -73,3 +71,35 @@ class BpiDataService {
         return rates
     }
 }
+func sortByMonth() {
+    var rateValues = [Double]()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    var arr = [[dateFormatter.date(from: "2019-06-12"):7238.341],[dateFormatter.date(from: "2019-05-13"):7300.4105],[dateFormatter.date(from: "2019-04-14"):7741.8847],[dateFormatter.date(from: "2019-04-15"):7887.3168],[dateFormatter.date(from: "2019-03-16"):8006.9002],[dateFormatter.date(from: "2019-02-17"):8323.638499999999],[dateFormatter.date(from: "2019-01-18"):8114.5371]]
+    
+    let calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+    var months = [Int]()
+    
+    for item in arr {
+        guard case let date?? = item.keys.first else {return}
+        let month = calendar.component(Calendar.Component.month, from: date)
+        if !months.contains(month) {
+            months.append(month)
+        }
+    }
+    for i in months {
+        let datesArray = arr.filter{ item -> Bool in
+            guard case let date?? = item.keys.first else {return false}
+            if calendar.component(Calendar.Component.month, from: date) == i {
+                return true
+            }
+            return false
+        }
+        let newArr = datesArray.reduce(into: []) { rates, item in
+            rat
+        }
+    }
+}
+
+sortByMonth()
+

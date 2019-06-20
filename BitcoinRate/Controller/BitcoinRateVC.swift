@@ -25,7 +25,6 @@ class BitcoinRateVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeGraphPeriod.addTarget(self, action: #selector(changeGraphSource(_:)), for: .allEvents)
-        drawGraph(<#T##values: [Double]##[Double]#>, "Average value by week")
         updateUI()
         self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         picker.delegate = self
