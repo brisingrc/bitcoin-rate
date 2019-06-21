@@ -322,7 +322,7 @@
         <scene sceneID="QNo-L1-Gzd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t5d-gr-3yx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Current Rate" id="kBt-Ha-Wif"/>
+                    <tabBarItem key="tabBarItem" title="Current Rate" image="rate" id="kBt-Ha-Wif"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7xk-56-wc5">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -384,7 +384,7 @@
                                     <action selector="updateUI" destination="dWJ-I8-xBC" eventType="touchUpInside" id="F2l-Yk-Uon"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t72-oL-tXF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t72-oL-tXF">
                                 <rect key="frame" x="61" y="288" width="198" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="183" id="XZ6-bP-PNg"/>
@@ -410,7 +410,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4M3-pa-sMt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Converter" id="u1H-B9-gX0"/>
+                    <tabBarItem key="tabBarItem" title="Converter" image="converter" id="u1H-B9-gX0"/>
                     <connections>
                         <outlet property="amountTF" destination="07t-p1-UIL" id="JeH-0c-Sjk"/>
                         <outlet property="convertBtn" destination="DtB-AR-sDP" id="TdO-4n-rSc"/>
@@ -426,7 +426,7 @@
         <scene sceneID="cPc-6o-BNy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b8E-Cg-jKr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Transaction List" id="lAh-LX-tfS"/>
+                    <tabBarItem key="tabBarItem" title="Transaction List" image="transaction" id="lAh-LX-tfS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4x-7L-b2e">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -442,4 +442,9 @@
             <point key="canvasLocation" x="360" y="643.30985915492954"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="converter" width="25" height="25"/>
+        <image name="rate" width="25" height="25"/>
+        <image name="transaction" width="25" height="25"/>
+    </resources>
 </document>

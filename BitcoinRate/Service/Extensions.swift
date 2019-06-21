@@ -11,15 +11,7 @@ import Foundation
 extension Date {
     
     func isSameMonth(_ dic: [String:Any]) {
-        var newDic: [[Date:Double]] = []
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
         
-        for (key, value) in dic {
-            guard let date = formatter.date(from: key) else {return}
-            guard let value = value as? Double else {return}
-            newDic.append([date:value])
-        }
     }
     
 }

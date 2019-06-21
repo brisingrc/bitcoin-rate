@@ -41,13 +41,8 @@ class BpiDataService {
    
     }
     
-    func makeArrayForGraph(from: [Double]) {
-        
-    }
-    
-    private static func sort(_ dic:JSON) -> [Double] {
+    static func sort(_ dic:JSON) -> [Double] {
         var rates: [Double] = []
-        var tempItem: Double = 0
         if dic.count <= 7 {
             for value in dic.values {
                 guard let value = value as? Double else {return rates}
@@ -66,40 +61,72 @@ class BpiDataService {
             }
         }
         else {
-            return rates
+            rates =  sortByMonth(dic: dic)
         }
         return rates
     }
 }
-func sortByMonth() {
+
+func sortByMonth(dic: JSON) -> [Double] {
+    
+    var newDicArr: [[Date:Double]] = []
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    
+    for (key, value) in dic {
+        guard let date = formatter.date(from: key) else {return [Double]()}
+        guard let value = value as? Double else {return [Double]()}
+        newDicArr.append([date:value])
+    }
     var rateValues = [Double]()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    var arr = [[dateFormatter.date(from: "2019-06-12"):7238.341],[dateFormatter.date(from: "2019-05-13"):7300.4105],[dateFormatter.date(from: "2019-04-14"):7741.8847],[dateFormatter.date(from: "2019-04-15"):7887.3168],[dateFormatter.date(from: "2019-03-16"):8006.9002],[dateFormatter.date(from: "2019-02-17"):8323.638499999999],[dateFormatter.date(from: "2019-01-18"):8114.5371]]
     
     let calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
     var months = [Int]()
+    var years = [Int]()
     
-    for item in arr {
-        guard case let date?? = item.keys.first else {return}
+    for item in newDicArr {
+        guard let date = item.keys.first else {return[Double]()}
         let month = calendar.component(Calendar.Component.month, from: date)
+        let year = calendar.component(Calendar.Component.year, from: date)
+        
         if !months.contains(month) {
             months.append(month)
         }
+        if !years.contains(year) {
+            years.append(year)
+        }
     }
-    for i in months {
-        let datesArray = arr.filter{ item -> Bool in
-            guard case let date?? = item.keys.first else {return false}
-            if calendar.component(Calendar.Component.month, from: date) == i {
-                return true
+    
+    //    print(years)
+    for j in years {
+        for i in months {
+            let datesArray = newDicArr.filter{ item -> Bool in
+                guard let date = item.keys.first else {return false}
+                if calendar.component(Calendar.Component.month, from: date) == i && calendar.component(Calendar.Component.year, from: date) == j {
+                    return true
+                }
+                return false
             }
-            return false
-        }
-        let newArr = datesArray.reduce(into: []) { rates, item in
-            rat
+            let newArr = datesArray.reduce(into: [Double]()) { rates, item in
+                rates.append(item.values.first!)
+            }
+            print(newArr)
+            if newArr.isEmpty {
+                continue
+            }
+            rateValues.append(getAverageValue(from: newArr))
+            //            print(
         }
     }
+    return rateValues
 }
 
-sortByMonth()
+func getAverageValue(from: [Double]) -> Double {
+    let sum = from.reduce(0.0) { sum, item  in
+        sum + item
+    }
+    return sum/Double(from.count)
+}
+
+
 
